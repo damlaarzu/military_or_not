@@ -1,0 +1,28 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Local datasets and generated training artifacts
+data/
+datasets/
+nwpu vhr10 dataset/
+military-vehicle.v6i.yolov11/
+mvrsd/
+runs/
+*.pt
+*.pth
+*.onnx
+*.cache
+*.npy
+
+# User uploads and generated predictions
+webapp/static/uploads/
+webapp/static/results/

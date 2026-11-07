@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+<h2>Sonuç</h2>
+
+
+{% if annotated_url %}
+<img src="{{ annotated_url }}" alt="Annotated result" class="preview" />
+{% else %}
+<p>Annotasyon görseli bulunamadı.</p>
+{% endif %}
+
+
+{% if meta and meta.class_counts %}
+<h3>Sayım</h3>
+<ul class="counts">
+{% for cname, cnt in meta.class_counts.items() %}
+<li><strong>{{ cname }}</strong>: {{ cnt }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+
+{% if meta and meta.detections %}
+<details>
+<summary>Ayrıntılar</summary>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Sınıf</th>
+<th>Güven</th>
+</tr>
+</thead>
+<tbody>
+{% for d in meta.detections %}
+<tr>
+<td>{{ loop.index }}</td>
+<td>{{ d.class_name }}</td>
+<td>{{ '%.3f'|format(d.conf) if d.conf is not none else '-' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</details>
+{% endif %}
+
+
+<div class="actions">
+<a href="{{ url_for('index') }}" class="button">Yeni Görsel Yükle</a>
+</div>
+</section>
+{% endblock %}

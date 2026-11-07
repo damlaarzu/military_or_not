@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+<h2>Görsel Yükle</h2>
+<form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+<input type="file" name="image" accept="image/*" required />
+<button type="submit">Tespit Yap</button>
+</form>
+<p class="hint">Desteklenen türler: JPG, PNG, WEBP (≤ 15 MB)</p>
+</section>
+{% endblock %}

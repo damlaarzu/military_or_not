@@ -1,0 +1,8 @@
+
+train: datasets/merged/images/train
+val: datasets/merged/images/val
+test: datasets/merged/images/test
+
+names:
+  0: military_vehicle
+  1: civilian_vehicle

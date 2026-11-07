@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Araç Sınıflandırma — YOLO11</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+<header class="container">
+<h1>YOLO11 — Sivil vs Askeri Araç Tespiti</h1>
+</header>
+
+
+<main class="container">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flash">
+{% for msg in messages %} <p>{{ msg }}</p> {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+
+{% block content %}{% endblock %}
+</main>
+
+
+<footer class="container muted">
+<p>© {{ 2025 }} — Demo uygulama</p>
+</footer>
+</body>
+</html>
